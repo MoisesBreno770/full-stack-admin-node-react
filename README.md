@@ -3,7 +3,7 @@ Administrative panel that contains information about Products, customers, transa
 
 Project with the intention of further strengthening my knowledge in creating API using NodeJS, Express and MongoDB with consumption in React.
 
-Node, Express and MongoDB were used in the backend. On the frontend, the created API was consumed using React with TypeScript, Material UI, Material UI, Data Grid, React Date Picker, Redux Toolkit for component styling and rendering
+Node, Express and MongoDB were used in the backend. On the frontend, the created API was consumed using React with TypeScript, Material UI, Material UI, Data Grid, React Date Picker, Redux Toolkit for component styling and rendering.
 
 ## Project execution
 To run the project is very simple, first make sure you have node installed. After that, follow these steps:
