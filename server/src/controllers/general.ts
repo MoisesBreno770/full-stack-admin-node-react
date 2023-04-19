@@ -1,19 +1,20 @@
-import User from "../models/User.js";
-import OverallStat from '../models/OverallStat.js';
-import Transaction from '../models/Transaction.js';
+import express from 'express';
+import User from "../models/User"; 
+import OverallStat from "../models/OverallStat"; 
+import Transaction from "../models/Transaction"; 
 
-export const getUser = async (req, res) => {
+export const getUser = async (req: express.Request, res: express.Response): Promise<void> => {
     try {
         const { id } = req.params;
         const user = await User.findById(id);
         res.status(200).json(user);
 
-    } catch (error) {
+    } catch (error: any) {
         res.status(404).json({ message: error.message });
     }
 }
 
-export const getDashboardStats = async (req, res) => {
+export const getDashboardStats = async (req: express.Request, res: express.Response): Promise<void> => {
     try {
         // hardcoded values
         const currentMonth = 'November';
@@ -28,17 +29,17 @@ export const getDashboardStats = async (req, res) => {
 
         const { totalCustomers, yearlyTotalSoldUnits, yearlySalesTotal, monthlyData, salesByCategory } = overallStat[0];
 
-        const thisMonthStats = overallStat[0].monthlyData.find(({ month }) => {
+        const thisMonthStats = overallStat[0].monthlyData.find(({ month }: any) => {
             return month === currentMonth;
         });
 
-        const todayStats = overallStat[0].dailyData.find(({ date }) => {
+        const todayStats = overallStat[0].dailyData.find(({ date }: any) => {
             return date === currentDay;
         });
 
         res.status(200).json({ totalCustomers, yearlyTotalSoldUnits, yearlySalesTotal, monthlyData, salesByCategory, thisMonthStats, todayStats, transactions });
 
-    } catch (error) {
+    } catch (error: any) {
         res.status(404).json({ message: error.message });
     }
 }
